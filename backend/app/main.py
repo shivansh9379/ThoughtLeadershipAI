@@ -1,14 +1,22 @@
-from backend.app.services.pipeline_service import generate_thought_leadership
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+
+# Database
 from backend.app.database.database import Base, engine
+
+# Create database tables BEFORE importing services
+Base.metadata.create_all(bind=engine)
+
+# Services
+from backend.app.services.pipeline_service import generate_thought_leadership
 from backend.app.services.chat_service import generate_reply
 
-Base.metadata.create_all(bind=engine)
+
 app = FastAPI()
+
 
 app.mount(
     "/static",
@@ -16,7 +24,10 @@ app.mount(
     name="static"
 )
 
-templates = Jinja2Templates(directory="backend/app/templates")
+
+templates = Jinja2Templates(
+    directory="backend/app/templates"
+)
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -39,6 +50,7 @@ async def chat(data: ChatRequest):
     return {
         "reply": reply
     }
+
 
 class ContentRequest(BaseModel):
     topics: str
