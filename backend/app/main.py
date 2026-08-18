@@ -6,8 +6,9 @@ from pydantic import BaseModel
 
 # Database
 from backend.app.database.database import Base, engine
+from backend.app.database import models
 
-# Create database tables BEFORE importing services
+# Create database tables
 Base.metadata.create_all(bind=engine)
 
 # Services
