@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thought Leadership AI</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+    <h1>🤖 Thought Leadership AI</h1>
+
+    <p class="subtitle">
+        Research. Think. Write. Lead.
+    </p>
+
+    <!-- ================================= -->
+    <!-- THOUGHT LEADERSHIP GENERATOR -->
+    <!-- ================================= -->
+
+    <div class="generator-card">
+
+        <h2>✨ Generate Thought Leadership</h2>
+
+        <p class="generator-description">
+            Turn a topic into a research-backed,
+            authoritative thought-leadership article.
+        </p>
+
+        <div class="generator-inputs">
+
+            <input
+                id="topic-input"
+                type="text"
+                placeholder="Enter topic e.g. AI and Future of Work"
+                autocomplete="off"
+            >
+
+            <input
+                id="audience-input"
+                type="text"
+                placeholder="Target audience e.g. MBA Students"
+                autocomplete="off"
+            >
+
+            <button id="generate-btn">
+                Generate Article
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- CHAT BOX -->
+    <!-- ================================= -->
+
+    <div id="chat-box" class="chat-box">
+
+        <div class="messages">
+
+            <div class="ai-message markdown-body">
+                👋 Hello! I can chat with you or generate
+                a complete thought-leadership article.
+            </div>
+
+        </div>
+
+        <div class="input-area">
+
+            <input
+                id="message"
+                name="message"
+                type="text"
+                placeholder="Ask me anything..."
+                autocomplete="off"
+            >
+
+            <button id="send-btn">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Markdown Parser -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- Syntax Highlight -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>
+    marked.setOptions({
+        breaks: true,
+        gfm: true
+    });
+</script>
+
+<script src="/static/js/script.js"></script>
+
+</body>
+
+</html>

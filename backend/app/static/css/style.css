@@ -1,0 +1,860 @@
+/* =========================================================
+   THOUGHT LEADERSHIP AI
+   FINAL UI STYLES
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: #f8fafc;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(14, 165, 233, 0.20),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(99, 102, 241, 0.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #071321 0%,
+            #0c1830 48%,
+            #181438 100%
+        );
+
+    background-attachment: fixed;
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(1180px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding:
+        55px 0 80px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.container > h1 {
+    text-align: center;
+
+    font-size:
+        clamp(2.6rem, 5vw, 4.3rem);
+
+    line-height: 1.05;
+
+    font-weight: 850;
+
+    letter-spacing: -2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #38bdf8,
+            #60a5fa,
+            #818cf8
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+
+    color: #b8c5d8;
+
+    font-size: 1.15rem;
+
+    letter-spacing: 0.2px;
+
+    margin-bottom: 48px;
+}
+
+/* =========================================================
+   GENERATOR CARD
+   ========================================================= */
+
+.generator-card {
+    width: 100%;
+
+    padding: 30px;
+
+    margin-bottom: 24px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27, 42, 64, 0.96),
+            rgba(18, 30, 50, 0.97)
+        );
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.20);
+}
+
+/* Generator heading */
+
+.generator-card h2 {
+    color: #38bdf8;
+
+    font-size: 1.55rem;
+
+    font-weight: 750;
+
+    margin-bottom: 8px;
+}
+
+/* Generator description */
+
+.generator-description {
+    color: #b9c5d6;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 24px;
+}
+
+/* =========================================================
+   GENERATOR INPUT ROW
+   ========================================================= */
+
+.generator-inputs {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        auto;
+
+    gap: 14px;
+
+    align-items: stretch;
+
+    width: 100%;
+}
+
+/* =========================================================
+   GENERATOR INPUTS
+   ========================================================= */
+
+#topic-input,
+#audience-input {
+    width: 100%;
+
+    height: 62px;
+
+    padding:
+        0 20px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    outline: none;
+
+    background: #0c1729;
+
+    color: #f8fafc;
+
+    font-size: 1rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+#topic-input::placeholder,
+#audience-input::placeholder {
+    color: #738198;
+}
+
+#topic-input:focus,
+#audience-input:focus {
+    border-color: #38bdf8;
+
+    background: #0e1b30;
+
+    box-shadow:
+        0 0 0 4px rgba(56, 189, 248, 0.10);
+}
+
+/* =========================================================
+   GENERATE BUTTON
+   ========================================================= */
+
+#generate-btn {
+    height: 62px;
+
+    min-width: 190px;
+
+    padding:
+        0 28px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #38bdf8,
+            #0ea5e9
+        );
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 750;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(14, 165, 233, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+#generate-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 32px rgba(14, 165, 233, 0.28);
+}
+
+#generate-btn:active {
+    transform: translateY(0);
+}
+
+#generate-btn:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+/* =========================================================
+   CHAT / ARTICLE CONTAINER
+   ========================================================= */
+
+.chat-box {
+    width: 100%;
+
+    min-height: 420px;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27, 41, 62, 0.97),
+            rgba(15, 27, 46, 0.98)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   MESSAGE / ARTICLE AREA
+   ========================================================= */
+
+.messages {
+    width: 100%;
+
+    height: 620px;
+
+    overflow-y: auto;
+
+    padding: 40px;
+}
+
+/* Scrollbar */
+
+.messages::-webkit-scrollbar {
+    width: 9px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #34445d;
+
+    border-radius: 20px;
+}
+
+.messages::-webkit-scrollbar-thumb:hover {
+    background: #4b607d;
+}
+
+/* =========================================================
+   NORMAL AI MESSAGE
+   ========================================================= */
+
+.ai-message {
+    color: #e2e8f0;
+
+    font-size: 1.05rem;
+
+    line-height: 1.75;
+}
+
+/* =========================================================
+   MARKDOWN ARTICLE
+   ========================================================= */
+
+.ai-message.markdown-body {
+    width: min(900px, 100%);
+
+    margin: 0 auto;
+
+    padding:
+        5px 10px 50px;
+
+    background: transparent !important;
+
+    color: #d7e0ec;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+/* =========================================================
+   ARTICLE TITLE
+   ========================================================= */
+
+.markdown-body h1 {
+    color: #f8fafc;
+
+    font-size:
+        clamp(2rem, 4vw, 3.2rem);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    margin:
+        10px 0 24px;
+
+    border: none !important;
+}
+
+/* =========================================================
+   ARTICLE INTRO
+   ========================================================= */
+
+.markdown-body h1 + p {
+    color: #aebbd0;
+
+    font-size: 1.15rem;
+
+    line-height: 1.75;
+
+    margin-bottom: 34px;
+}
+
+/* =========================================================
+   ARTICLE H2
+   ========================================================= */
+
+.markdown-body h2 {
+    color: #38bdf8;
+
+    font-size: 1.75rem;
+
+    line-height: 1.3;
+
+    margin:
+        48px 0 18px;
+
+    border: none !important;
+}
+
+/* =========================================================
+   ARTICLE H3
+   ========================================================= */
+
+.markdown-body h3 {
+    color: #e8eef7;
+
+    font-size: 1.35rem;
+
+    line-height: 1.35;
+
+    margin:
+        34px 0 14px;
+
+    border: none !important;
+}
+
+/* =========================================================
+   ARTICLE PARAGRAPHS
+   ========================================================= */
+
+.markdown-body p {
+    color: #d1dbe8;
+
+    font-size: 1.06rem;
+
+    line-height: 1.9;
+
+    margin:
+        0 0 22px;
+}
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+.markdown-body ul,
+.markdown-body ol {
+    padding-left: 28px;
+
+    margin:
+        18px 0 28px;
+}
+
+.markdown-body li {
+    color: #d1dbe8;
+
+    font-size: 1.04rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 12px;
+}
+
+.markdown-body li::marker {
+    color: #38bdf8;
+}
+
+/* =========================================================
+   BOLD
+   ========================================================= */
+
+.markdown-body strong {
+    color: #ffffff;
+
+    font-weight: 750;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.markdown-body a {
+    color: #38bdf8;
+
+    text-decoration: none;
+}
+
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   BLOCKQUOTE
+   ========================================================= */
+
+.markdown-body blockquote {
+    margin:
+        30px 0;
+
+    padding:
+        20px 24px;
+
+    border-left:
+        4px solid #38bdf8;
+
+    border-radius:
+        0 12px 12px 0;
+
+    background:
+        rgba(56, 189, 248, 0.06);
+
+    color: #dbeafe;
+}
+
+/* =========================================================
+   CODE
+   ========================================================= */
+
+.markdown-body pre {
+    margin:
+        25px 0;
+
+    padding:
+        20px;
+
+    overflow-x: auto;
+
+    border-radius: 13px;
+
+    background: #080f1c !important;
+}
+
+.markdown-body code {
+    font-family:
+        "Cascadia Code",
+        "Fira Code",
+        Consolas,
+        monospace;
+}
+
+/* =========================================================
+   HORIZONTAL RULE
+   ========================================================= */
+
+.markdown-body hr {
+    border: none;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    margin:
+        42px 0;
+}
+
+/* =========================================================
+   CHAT INPUT AREA
+   ========================================================= */
+
+.input-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 20px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(7, 15, 27, 0.72);
+}
+
+/* Chat input */
+
+#message {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 56px;
+
+    padding:
+        0 18px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    outline: none;
+
+    background: #0b1627;
+
+    color: white;
+
+    font-size: 1rem;
+}
+
+#message::placeholder {
+    color: #718096;
+}
+
+#message:focus {
+    border-color: #38bdf8;
+
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, 0.10);
+}
+
+/* Chat send */
+
+#send-btn {
+    height: 56px;
+
+    min-width: 90px;
+
+    padding:
+        0 24px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #38bdf8,
+            #0ea5e9
+        );
+
+    color: white;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#send-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(14, 165, 233, 0.25);
+}
+
+#send-btn:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+/* =========================================================
+   USER CHAT MESSAGE
+   ========================================================= */
+
+.user-message {
+    width: fit-content;
+
+    max-width: 75%;
+
+    margin:
+        15px 0 15px auto;
+
+    padding:
+        12px 17px;
+
+    border-radius:
+        16px 16px 4px 16px;
+
+    background:
+        rgba(56, 189, 248, 0.12);
+
+    border:
+        1px solid rgba(56, 189, 248, 0.14);
+
+    color: #e0f2fe;
+
+    line-height: 1.6;
+}
+
+/* =========================================================
+   THINKING
+   ========================================================= */
+
+#thinking {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #aebbd0;
+}
+
+.loader {
+    width: 17px;
+
+    height: 17px;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.18);
+
+    border-top-color: #38bdf8;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .container {
+        width:
+            calc(100% - 24px);
+
+        padding:
+            35px 0 50px;
+    }
+
+    .container > h1 {
+        font-size: 2.7rem;
+
+        letter-spacing: -1px;
+    }
+
+    .generator-card {
+        padding: 22px;
+    }
+
+    .generator-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    #generate-btn {
+        width: 100%;
+    }
+
+    .messages {
+        height: 600px;
+
+        padding: 25px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width:
+            calc(100% - 16px);
+    }
+
+    .container > h1 {
+        font-size: 2.15rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+
+        margin-bottom: 32px;
+    }
+
+    .generator-card {
+        padding: 18px;
+
+        border-radius: 18px;
+    }
+
+    .generator-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .messages {
+        height: 550px;
+
+        padding: 18px;
+    }
+
+    .markdown-body h1 {
+        font-size: 2rem;
+    }
+
+    .markdown-body h2 {
+        font-size: 1.45rem;
+    }
+
+    .markdown-body p {
+        font-size: 1rem;
+
+        line-height: 1.8;
+    }
+
+    .input-area {
+        flex-direction: column;
+    }
+
+    #message,
+    #send-btn {
+        width: 100%;
+    }
+
+    .user-message {
+        max-width: 90%;
+    }
+}
